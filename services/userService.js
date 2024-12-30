@@ -11,7 +11,6 @@ const createUserService = async (userData) => {
     if (!userDetails.mobileNumber || !userDetails.email || !password || !userDetails.role) {
       throw new Error('Missing required fields');
     }
-
     // Check if the mobile number or email is already taken
     const existingUser = await UserModel.findOne({
       $or: [{ mobileNumber: userDetails.mobileNumber }, { email: userDetails.email }],
@@ -19,8 +18,6 @@ const createUserService = async (userData) => {
     if (existingUser) {
       throw new Error('Mobile number or email is already taken');
     }
-
-
 
     // Hashing password
     const hashedPassword = await bcrypt.hash(password, 10);
