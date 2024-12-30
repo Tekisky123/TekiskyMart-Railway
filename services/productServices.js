@@ -1,7 +1,6 @@
 
 import ProductModel from "../models/productModel.js";
-import translate from "google-translate-api";
-import mongoose from 'mongoose';
+
 
 const generateProductId = () => {
     try {
